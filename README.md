@@ -1,6 +1,6 @@
 # Habit Tracker APP
 
-# Track Stack
+# Tech Stack
 
 NodeJS , ExpressJS,MongoDB
 
