@@ -1,0 +1,56 @@
+<div class="habit-list container">
+  <% if( !habits || habits.length === 0){ %>
+  <hr />
+  <div class="row-items">
+    <h3>No Habits !!</h3>
+  </div>
+  <% } %>
+  <ul class="list-container">
+    <% habits.forEach(habit => { let timezoneoffset = (new
+    Date()).getTimezoneOffset() * 60000, found=false, status='', isDone = true;
+    var today = (new Date(Date.now() - timezoneoffset)).toISOString().slice(0,
+    10);
+    <!-- to keep track of the current status of the item -->
+    habit.dates.find(function (ele, ind) { if(ele.date === today) { found =
+    true; status = ele.complete; if(ele.complete === 'yes' ){ isDone = true;
+    }else { isDone = false; } } }); let dateList = habit.dates.filter((ele) =>
+    ele.complete === "yes"); %>
+
+    <li class="list">
+      <span> <%= dateList.length %> / <%=habit.dates.length %> </span>
+
+      <div class="list-details">
+        <h5 class="list-content"><%= habit.content %></h5>
+      </div>
+
+      <div class="list-icons">
+        <a
+          href="updateStatus_habit/?id=<%= habit._id %>&date=<%= today %>"
+          class="status"
+        >
+          <% if(found && status==='yes'){ %>
+          <i class="fa fa-check-circle" aria-hidden="true"></i>
+          <% } else if(found && status==='no'){ %>
+          <i class="fa fa-times-circle" aria-hidden="true"></i>
+          <% } else { %>
+          <i class="fa fa-bullseye" aria-hidden="true"></i>
+          <% } %>
+        </a>
+        &emsp;
+        <a href="/mark_to_fav/?id=<%= habit._id %>" class="favourite">
+          <% if(habit.favourite) { %>
+          <i class="fa fa-flag" aria-hidden="true"></i>
+          <% } else { %>
+          <i class="fa fa-flag-o" aria-hidden="true"></i>
+          <% } %>
+        </a>
+
+        <a href="/delete/?id=<%= habit._id %>" class="delete">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </a>
+      </div>
+    </li>
+
+    <% }) %>
+  </ul>
+</div>

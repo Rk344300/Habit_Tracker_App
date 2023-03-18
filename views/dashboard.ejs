@@ -1,0 +1,88 @@
+<!-- dashboard -->
+<link rel="stylesheet" href="/css/dashboard.css" />
+<!-- include navbar -->
+<%- include('partials/_navbar') %>
+
+<div class="dashboardContainer text-center">
+  <h2 style="margin-bottom: 30px">
+    <b><%=user.name %> - Your Habit </b>
+  </h2>
+
+  <div>
+    <form action="/change-page" method="POST" class="habit-header">
+      <div class="btn-group" aria-label="Change View">
+        <!-- toggling daily/weekly view options -->
+        <% if(user.viewType === "daily"){ %>
+        <button
+          type="submit"
+          class="btn btn-success active"
+          aria-pressed="true"
+          disabled
+        >
+          Daily_view
+        </button>
+        <button type="submit" class="btn btn-primary">Weekly_view</button>
+
+        <% } else { %>
+        <button type="submit" class="btn btn-primary">Daily_view</button>
+        <button
+          type="submit"
+          class="btn btn-success"
+          aria-pressed="true"
+          disabled
+        >
+          Weekly_view
+        </button>
+        <% } %>
+      </div>
+    </form>
+  </div>
+
+  <div class="card">
+    <form action="/newHabit/<%=user._id%>" method="POST">
+      <input
+        type="text"
+        name="content"
+        placeholder="Enter new Habit"
+        required
+      />
+
+      <button type="submit" class="add-btn">
+        <i class="fas fa-plus"></i>
+      </button>
+    </form>
+    <% let Done = 0, NotDone = 0, None=0; habits.forEach(details => { let
+    timezoneoffset = (new Date()).getTimezoneOffset() * 60000 ; var today = (new
+    Date(Date.now() - timezoneoffset)).toISOString().slice(0, 10);
+    <!-- Keeping track of total count of completed, inCompleted and Unmarked eles -->
+    details.dates.find(function (ele, ind) { if(ele.date === today) {
+    if(ele.complete === 'yes' ){ Done ++; }else if(ele.complete === 'no') {
+    NotDone ++; }else{ None ++; } } }); }); %>
+    <div class="icon">
+      <i
+        class="fa fa-check-circle"
+        aria-hidden="true"
+        style="color: rgb(112, 69, 116)"
+        ;
+      ></i>
+      <%= user.viewType === "daily" ? Done : '' %> -Done&emsp;&emsp;
+      <i
+        class="fa fa-times-circle"
+        aria-hidden="true"
+        style="color: #093eec"
+      ></i>
+      <%= user.viewType === "daily" ? NotDone : '' %> -NotDone&emsp;&emsp;
+      <i
+        class="fa fa-bullseye"
+        aria-hidden="true"
+        style="color: rgb(36, 182, 31)"
+      ></i>
+      <%= user.viewType === "daily" ? None : '' %> -None&emsp;&emsp;
+    </div>
+
+    <div class="daily_weekly">
+      <% if(user.viewType ==="daily"){ %> <%- include('partials/_daily') %> <%
+      }else{ %> <%- include('partials/_weekly') %> <% } %>
+    </div>
+  </div>
+</div>

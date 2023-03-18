@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/css/navbar.css" />
+<!-- navbar -->
+<div class="navbar">
+  <div class="container-fluid">
+    <div>
+      <a class="navbar-brand" href="#">Habit Tracker</a>
+    </div>
+
+    <!-- navbar right -->
+    <div class="body-right">
+      <ul>
+        <li class="">
+          <img
+            class="me-2"
+            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            width="45px"
+            height="45px"
+            alt=""
+          />
+        </li>
+        <li class="nav-item me-3 me-lg-0">
+          <p class="lead float-right mb-3 me-5">
+            <b><%= user.name %></b>
+          </p>
+        </li>
+
+        <li class="nav-item me-3 me-lg-0">
+          <a href="/users/logout" class="signout">
+            <i class="fa fa-sign-out" aria-hidden="true"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,179 @@
+body {
+  overflow-y: scroll;
+}
+.dashboardContainer {
+  background-color: rgb(9, 43, 136);
+  color: white;
+  padding-bottom: 3%;
+}
+.card {
+  width: 90%;
+  margin-left: 5%;
+
+  border: 1px solid red;
+  background-color: rgb(102, 69, 69);
+}
+
+.list-container {
+  border: 2px solid rgb(250, 213, 213);
+  background-color: lightgray;
+  color: black;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 2px solid green;
+  height: 50px;
+  margin: 10px;
+  padding: 5px;
+  background-color: seashell;
+}
+.list-icons {
+  margin-right: 3px;
+}
+.container h2 {
+  padding: 10px;
+  font-family: "Candal", sans-serif;
+  font-size: 2em;
+}
+
+.card input {
+  margin-top: 3%;
+  width: 54%;
+  background-color: lightgray;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  font-family: "Candal", sans-serif;
+}
+
+.card .add-btn {
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px 13px;
+  font-family: "Candal", sans-serif;
+  background-color: rgb(65, 173, 236);
+}
+.icon {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid black; */
+  padding-left: 30%;
+  align-items: center;
+}
+.daily_weekly {
+  margin-top: 3%;
+  /* border: 3px solid green; */
+  width: 90%;
+  margin-left: 4%;
+}
+.habit-list {
+  width: 100%;
+}
+.row {
+  margin-left: 3%;
+  margin-top: 3%;
+  margin-bottom: 2%;
+}
+.row .card {
+  background-color: rgb(16, 204, 214);
+  margin-bottom: 2%;
+}
+.card-footer a {
+  margin-right: 1%;
+}
+
+.habit-list-item {
+  padding: 10px;
+  margin-top: 10px;
+  /* border: none; */
+  border-radius: 5px;
+  background: rgba(122, 17, 17, 0.33);
+  display: flex;
+  flex-direction: row;
+}
+
+.habit-list-weekly-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-items {
+  display: flex;
+}
+
+.status .fa-check-circle {
+  color: rgb(112, 69, 116);
+  font-size: 20px;
+}
+
+.status .fa-times-circle {
+  color: #093eec;
+  font-size: 20px;
+}
+
+.status .fa-bullseye {
+  color: rgb(36, 182, 31);
+  font-size: 20px;
+}
+
+/* weekly view */
+.status2 .fa-check-circle {
+  color: rgb(112, 69, 116);
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.status2 .fa-times-circle {
+  color: #093eec;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.status2 .fa-bullseye {
+  color: rgb(36, 182, 31);
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.fa-flag-o,
+.fa-flag,
+.fa-trash {
+  font-size: 20px;
+}
+
+.fa-flag-o,
+.fa-flag {
+  color: rgb(12, 114, 29);
+}
+
+.fa-trash {
+  color: #e53c37;
+}
+
+.cal-items {
+  margin-left: 5%;
+  margin-right: 3%;
+  margin-bottom: 12px;
+  position: relative;
+  color: aliceblue;
+  width: 80px;
+  height: 70px;
+  background-color: #fffffa;
+  text-align: center;
+  font-family: Oswald, sans-serif;
+  font-size: 12px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 1px rgb(97, 98, 184);
+  overflow: hidden;
+  user-select: none;
+}
+
+.cal {
+  width: 100%;
+  height: 60%;
+  background-color: #423c9e;
+}
