@@ -67,7 +67,7 @@ npm install
 npm start
 ```
 
-#### applocation run on port 8080
+#### application run on port 8080
 
 # folder structure
 
